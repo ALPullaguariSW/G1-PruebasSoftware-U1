@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 21-05-2025 a las 16:51:50
--- Versión del servidor: 8.0.17
--- Versión de PHP: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: May 27, 2025 at 04:31 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,50 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `reservas`
+-- Database: `reservas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reservas`
+-- Table structure for table `habitaciones`
+--
+
+CREATE TABLE `habitaciones` (
+  `id` int(11) NOT NULL,
+  `tipo` varchar(20) NOT NULL,
+  `numero` varchar(10) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `servicios` text DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
+  `precio` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `habitaciones`
+--
+
+INSERT INTO `habitaciones` (`id`, `tipo`, `numero`, `descripcion`, `servicios`, `imagen`, `precio`) VALUES
+(1, 'Simple', '101', 'Habitación simple con cama individual, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista a la ciudad.', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80', 35.00),
+(2, 'Simple', '102', 'Habitación simple con cama individual, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista a la ciudad.', 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80', 35.00),
+(3, 'Simple', '103', 'Habitación simple con cama individual, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista a la ciudad.', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80', 35.00),
+(4, 'Simple', '104', 'Habitación simple con cama individual, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista a la ciudad.', 'https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80', 35.00),
+(5, 'Simple', '105', 'Habitación simple con cama individual, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista a la ciudad.', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80', 35.00),
+(6, 'Doble', '201', 'Habitación doble con dos camas, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista al jardín.', 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80', 60.00),
+(7, 'Doble', '202', 'Habitación doble con dos camas, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista al jardín.', 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80', 60.00),
+(8, 'Doble', '203', 'Habitación doble con dos camas, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista al jardín.', 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80', 60.00),
+(9, 'Doble', '204', 'Habitación doble con dos camas, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista al jardín.', 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80', 60.00),
+(10, 'Doble', '205', 'Habitación doble con dos camas, baño privado, wifi, TV y escritorio.', 'Aire acondicionado, desayuno incluido, vista al jardín.', 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80', 60.00),
+(11, 'Suite', '301', 'Suite de lujo con cama king, sala de estar, jacuzzi, wifi, TV Smart.', 'Aire acondicionado, desayuno buffet, minibar, vista panorámica.', 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80', 120.00),
+(12, 'Suite', '302', 'Suite de lujo con cama king, sala de estar, jacuzzi, wifi, TV Smart.', 'Aire acondicionado, desayuno buffet, minibar, vista panorámica.', 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80', 120.00),
+(13, 'Suite', '303', 'Suite de lujo con cama king, sala de estar, jacuzzi, wifi, TV Smart.', 'Aire acondicionado, desayuno buffet, minibar, vista panorámica.', 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80', 120.00),
+(14, 'Suite', '304', 'Suite de lujo con cama king, sala de estar, jacuzzi, wifi, TV Smart.', 'Aire acondicionado, desayuno buffet, minibar, vista panorámica.', 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80', 120.00),
+(15, 'Suite', '305', 'Suite de lujo con cama king, sala de estar, jacuzzi, wifi, TV Smart.', 'Aire acondicionado, desayuno buffet, minibar, vista panorámica.', 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80', 120.00);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -34,84 +70,83 @@ CREATE TABLE `reservas` (
   `habitacion` varchar(50) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL,
-  `creado_en` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `creado_en` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `reservas`
+-- Dumping data for table `reservas`
 --
 
 INSERT INTO `reservas` (`id`, `usuario_id`, `habitacion`, `fecha_inicio`, `fecha_fin`, `creado_en`) VALUES
-(3, 6, 'Simple', '2025-04-30', '2025-05-08', '2025-05-21 16:20:11'),
-(4, 6, 'Doble', '2025-05-01', '2025-05-15', '2025-05-21 16:45:28');
+(3, 6, 'Simple', '2025-04-30', '2025-05-08', '2025-05-21 21:20:11'),
+(4, 6, 'Doble', '2025-05-01', '2025-05-15', '2025-05-21 21:45:28');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `correo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `contraseña` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `rol` varchar(20) COLLATE utf8mb4_general_ci DEFAULT 'usuario'
+  `nombre` varchar(100) NOT NULL,
+  `correo` varchar(100) NOT NULL,
+  `contraseña` varchar(255) NOT NULL,
+  `rol` varchar(20) DEFAULT 'usuario'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contraseña`, `rol`) VALUES
-(1, 'Cristian', 'cirobalino@espe.edu.ec', '$2y$10$B4CEKyaoAHNYu37a16UCAepcsV8H9ehIgwKRvcCGNtAWGNGBD0/pO', 'usuario'),
 (3, 'Carlos', 'cristianisaak1113@gmail.com', '$2y$10$zGqF1vP3p5a3xuqPQDePeer9bcmEf6KcQRa9Wnno0ivwfL6P9cdMu', 'usuario'),
-(4, 'Ronny Joel', 'ronnyibarra@gmail.com', '$2y$10$whm3SOn51zrTMXdfrdWNS.f6uvEmsKmI2wSAP3opQLtkccELGPim.', 'admin'),
-(6, 'Ronn', 'rjibarra1@espe.edu.ec', '$2y$10$TrQ65/vir7wk9pmtkkEcSuXm.VeHV4ziB2p0BM48DEdhwE3qYMUX6', 'usuario');
+(10, 'Cristian', 'cirobalino@espe.edu.ec', '$2y$10$DYPSUccukYwIpZf2bojL4esrO3AOiyykuLlLQiF3HkL.JkGq4urCa', 'usuario');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `reservas`
+-- Indexes for table `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reservas`
 --
 ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `correo` (`correo`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `reservas`
+-- AUTO_INCREMENT for table `habitaciones`
+--
+ALTER TABLE `habitaciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `reservas`
---
-ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
