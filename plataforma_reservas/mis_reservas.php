@@ -38,6 +38,7 @@ $resultado = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Mis Reservas</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/mis_reservas.css">
 </head>
 <body>
 <div class="formulario-contenedor">

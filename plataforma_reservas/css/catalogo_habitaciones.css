@@ -1,0 +1,134 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)), 
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario-contenedor {
+    background: rgba(30, 30, 40, 0.92);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto;
+    animation: fadeInUp 1.2s cubic-bezier(.39,.575,.565,1) both;
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.catalogo-habitaciones {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,230,255,0.05);
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1s;
+}
+
+.catalogo-habitaciones th, .catalogo-habitaciones td {
+    padding: 1rem 0.7rem;
+    text-align: center;
+}
+
+.catalogo-habitaciones th {
+    background: linear-gradient(90deg, #00e6ff 0%, #3a7bd5 100%);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #00e6ff;
+    font-size: 1.05rem;
+}
+
+.catalogo-habitaciones tr {
+    transition: background 0.2s;
+}
+
+.catalogo-habitaciones tr:hover {
+    background: rgba(0,230,255,0.07);
+}
+
+.catalogo-habitaciones td {
+    color: #e0f7fa;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(0,230,255,0.08);
+}
+
+.catalogo-habitaciones td .info-btn {
+    background: none;
+    border: none;
+    color: #00e6ff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-left: 0.3rem;
+    transition: color 0.2s;
+}
+.catalogo-habitaciones td .info-btn:hover {
+    color: #3a7bd5;
+}
+
+/* Modal styles */
+#modalHabitacion {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.55);
+    align-items: center;
+    justify-content: center;
+}
+#modalHabitacion.active {
+    display: flex;
+}
+.modal-content {
+    background: #23243a;
+    color: #fff;
+    border-radius: 14px;
+    padding: 2rem 2.5rem;
+    min-width: 300px;
+    max-width: 90vw;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    position: relative;
+    animation: fadeInUp 0.5s;
+}
+.modal-content h4 {
+    margin-top: 0;
+    color: #00e6ff;
+}
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-modal:hover {
+    color: #ff0050;
+}

@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <div class="formulario-contenedor">

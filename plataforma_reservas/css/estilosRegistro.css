@@ -1,0 +1,152 @@
+/* Estilos Generales */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)), 
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor del formulario */
+.formulario-contenedor {
+    background: rgba(30, 30, 40, 0.92);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    max-width: 350px;
+    width: 100%;
+    margin: 40px auto;
+    animation: fadeInUp 1.2s cubic-bezier(.39,.575,.565,1) both;
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Títulos */
+.formulario-contenedor h2 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+/* Etiquetas */
+.formulario-contenedor label {
+    color: #b0b3b8;
+    font-size: 0.98rem;
+    margin-bottom: 0.3rem;
+    display: block;
+    margin-top: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* Campos del formulario */
+.formulario-contenedor input[type="text"],
+.formulario-contenedor input[type="email"],
+.formulario-contenedor input[type="password"] {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    margin-top: 0.2rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 0.2rem;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.formulario-contenedor input:focus {
+    background: rgba(255,255,255,0.16);
+    box-shadow: 0 0 0 2px #00e6ff80;
+}
+
+/* Botón de envío */
+.formulario-contenedor button[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00e6ff 0%, #3a7bd5 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px 0 rgba(0,230,255,0.15);
+    transition: background 0.3s, transform 0.2s;
+    letter-spacing: 1px;
+}
+
+.formulario-contenedor button[type="submit"]:hover {
+    background: linear-gradient(90deg, #3a7bd5 0%, #00e6ff 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Mensajes de éxito y error */
+.mensaje {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    animation: fadeIn 0.7s;
+}
+
+.mensaje.exito {
+    background: rgba(0, 230, 150, 0.13);
+    color: #00e696;
+    border: 1px solid #00e696;
+}
+
+.mensaje.error {
+    background: rgba(255, 0, 80, 0.13);
+    color: #ff0050;
+    border: 1px solid #ff0050;
+}
+
+/* Párrafos */
+.formulario-contenedor p {
+    color: #b0b3b8;
+    text-align: center;
+    margin-top: 1.2rem;
+    font-size: 0.97rem;
+}
+
+/* Enlaces */
+.formulario-contenedor a {
+    color: #00e6ff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.formulario-contenedor a:hover {
+    color: #3a7bd5;
+    text-decoration: underline;
+}
