@@ -1,0 +1,66 @@
+/* css/login_register.css */
+body.auth-page {
+    /* Opcional: Si quieres un fondo específico para estas páginas */
+    /* background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/auth-background.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+    display: flex;
+    align-items: center; /* Centra el form-container verticalmente si el body es el flex container */
+    justify-content: center;
+}
+
+.auth-form-container { /* Hereda de .form-container pero puede tener overrides */
+    width: 100%;
+    max-width: 400px; /* Un poco más pequeño para auth */
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-form-container .logo-icon {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: 60px; /* Ajusta el tamaño de tu icono/logo */
+    height: 60px;
+    /* background-image: url('../images/logo-icon.svg'); O usa un <img> en el HTML */
+    /* background-size: contain; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+    /* Para el placeholder de flaticon */
+    content: "";
+    background: url('https://cdn-icons-png.flaticon.com/512/2356/2356787.png') no-repeat center center/contain;
+    opacity: 0.92;
+    filter: drop-shadow(0 4px 16px var(--primary-color));
+}
+
+
+.auth-form-container h2 {
+    font-size: 1.6rem; /* Un poco más pequeño que el h2 global */
+}
+
+.auth-form-container p {
+    text-align: center;
+    color: var(--text-muted-color);
+    font-size: 0.9rem;
+}
+.auth-form-container p a {
+    font-weight: 600;
+}
+
+.password-strength {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: var(--text-muted-color);
+}
+.password-strength.weak { color: var(--error-color); }
+.password-strength.medium { color: orange; }
+.password-strength.strong { color: var(--success-color); }

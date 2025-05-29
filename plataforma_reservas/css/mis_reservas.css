@@ -1,171 +1,94 @@
-body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-    background: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(0,0,0,0.4)), 
-        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* css/mis_reservas.css */
 
-.formulario-contenedor {
-    background: rgba(30, 30, 40, 0.92);
-    border-radius: 18px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    padding: 2.5rem 2.5rem 2rem 2.5rem;
-    max-width: 900px;
-    width: 100%;
-    margin: 40px auto;
-    animation: fadeInUp 1.2s cubic-bezier(.39,.575,.565,1) both;
-    backdrop-filter: blur(8px);
-    border: 1.5px solid rgba(255,255,255,0.08);
-    position: relative;
-    overflow: hidden;
-}
-
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.formulario-contenedor h2 {
-    color: #fff;
+.page-header {
     text-align: center;
     margin-bottom: 2rem;
-    letter-spacing: 1px;
-    font-weight: 600;
-    font-size: 2rem;
-    position: relative;
+}
+.page-header h1 {
+    font-size: 2.2rem;
 }
 
-.formulario-contenedor h2::before {
-    content: "";
-    display: block;
-    margin: 0 auto 1rem auto;
-    width: 60px;
-    height: 60px;
-    background: url('https://cdn-icons-png.flaticon.com/512/2356/2356787.png') no-repeat center center/contain;
-    opacity: 0.92;
-    filter: drop-shadow(0 4px 16px #00e6ff55);
-    animation: floatHotel 3s ease-in-out infinite alternate;
+.reservas-list .message-info { /* Si no hay reservas */
+    margin-top: 1rem;
 }
 
-@keyframes floatHotel {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(12px); }
-}
-
-.mensaje {
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1rem;
-    animation: fadeIn 0.7s;
-    border: 1px solid #00e6ff;
-    background: rgba(0, 230, 255, 0.10);
-    color: #00e6ff;
-}
-.mensaje:empty { display: none; }
-.mensaje.error {
-    border: 1px solid #ff0050;
-    background: rgba(255, 0, 80, 0.13);
-    color: #ff0050;
-}
-.mensaje.exito {
-    border: 1px solid #00e696;
-    background: rgba(0, 230, 150, 0.13);
-    color: #00e696;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: rgba(255,255,255,0.04);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0,230,255,0.05);
+.reserva-card {
+    background-color: var(--light-bg);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
     margin-bottom: 1.5rem;
-    animation: fadeIn 1s;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow-light);
+    display: flex;
+    flex-wrap: wrap; /* Para responsiveness */
+    gap: 1rem;
+    align-items: center;
 }
 
-table th, table td {
-    padding: 1rem 0.7rem;
-    text-align: center;
+.reserva-image {
+    flex-basis: 150px; /* Ancho base para la imagen */
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+.reserva-image img {
+    width: 100%;
+    height: 120px; /* Altura fija para la imagen de la habitación */
+    object-fit: cover;
 }
 
-table th {
-    background: linear-gradient(90deg, #00e6ff 0%, #3a7bd5 100%);
-    color: #fff;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #00e6ff;
-    font-size: 1.05rem;
+
+.reserva-details {
+    flex-grow: 1;
+    min-width: 200px; /* Para que no se comprima demasiado */
 }
 
-table tr {
-    transition: background 0.2s;
+.reserva-details h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+.reserva-details p {
+    font-size: 0.95rem;
+    color: var(--text-muted-color);
+    margin-bottom: 0.3rem;
+}
+.reserva-details strong {
+    color: var(--text-color);
 }
 
-table tr:hover {
-    background: rgba(0,230,255,0.07);
+.reserva-actions {
+    flex-basis: 150px; /* Espacio para el botón */
+    flex-grow: 0;
+    text-align: right;
 }
 
-table td {
-    color: #e0f7fa;
-    font-size: 1rem;
-    border-bottom: 1px solid rgba(0,230,255,0.08);
-}
+/* Para la tabla, si se prefiere ese formato */
+/* .table-responsive y table.styled-table ya están en main.css */
+/* Solo se necesitaría CSS específico si la tabla de mis_reservas es muy diferente */
 
-table td:last-child {
-    min-width: 120px;
-}
-
-button[type="submit"] {
-    padding: 0.5rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #ff0050 0%, #3a7bd5 100%);
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 8px 0 rgba(255,0,80,0.10);
-    transition: background 0.3s, transform 0.2s;
-    letter-spacing: 1px;
-}
-button[type="submit"]:hover {
-    background: linear-gradient(90deg, #3a7bd5 0%, #ff0050 100%);
-    transform: scale(1.05);
-}
-
-p, a {
-    color: #b0b3b8;
-    text-align: center;
-    font-size: 1rem;
-}
-
-a {
-    color: #00e6ff;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-a:hover {
-    color: #3a7bd5;
-    text-decoration: underline;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@media (max-width: 600px) {
+    .reserva-card {
+        flex-direction: column;
+        align-items: stretch; /* Para que los elementos ocupen el ancho */
+        text-align: center;
+    }
+    .reserva-image {
+        flex-basis: auto; /* Quita el ancho base */
+        width: 100%; /* Ocupa todo el ancho */
+        max-width: 250px; /* Limita el tamaño en móvil */
+        margin: 0 auto 1rem auto; /* Centra la imagen */
+    }
+    .reserva-image img {
+        height: 150px; /* Un poco más alta en móvil */
+    }
+    .reserva-actions {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    .reserva-actions .btn {
+        width: 100%;
+        max-width: 200px;
+    }
 }
