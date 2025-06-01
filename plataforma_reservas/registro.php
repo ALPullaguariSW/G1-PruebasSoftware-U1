@@ -8,7 +8,7 @@ if (isset($_SESSION["usuario_id"])) {
 require_once "includes/db.php";
 
 $page_title = "Registro de Usuario";
-$specific_css = "login_register.css";
+//$specific_css = "login_register.css";
 $specific_js = "auth_validations.js"; // Para validaciones JS
 $mensaje = "";
 $claseMensaje = "";

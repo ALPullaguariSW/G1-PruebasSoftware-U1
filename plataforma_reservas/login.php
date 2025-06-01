@@ -2,14 +2,19 @@
 session_start();
 // Redirigir si ya está logueado
 if (isset($_SESSION["usuario_id"])) {
-    header("Location: index.php");
+    // Redirigir según el rol
+    if (isset($_SESSION["rol"]) && $_SESSION["rol"] === "admin") {
+        header("Location: admin/dashboard.php");
+    } else {
+        header("Location: index.php");
+    }
     exit;
 }
 
 require_once "includes/db.php";
 
 $page_title = "Iniciar Sesión";
-$specific_css = "login_register.css"; // CSS combinado para login y registro
+//$specific_css = "login_register.css"; // CSS combinado para login y registro
 $mensaje = "";
 $correo = ""; // Para repoblar el campo
 
@@ -36,8 +41,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $_SESSION["usuario_id"] = $usuario["id"];
                     $_SESSION["usuario_nombre"] = $usuario["nombre"];
                     $_SESSION["rol"] = $usuario["rol"];
-                    
-                    header("Location: index.php");
+
+                    // Redirigir según el rol
+                    if ($usuario["rol"] === "admin") {
+                        header("Location: admin/dashboard.php");
+                    } else {
+                        header("Location: index.php");
+                    }
                     exit;
                 } else {
                     $mensaje = "Correo o contraseña incorrecta.";
@@ -49,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             $stmt->close();
         } else {
-            // error_log("Error en la preparación de la consulta de login: " . $conn->error);
             $mensaje = "Error del sistema. Intente más tarde.";
             $claseMensaje = "error";
         }
