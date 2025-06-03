@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-$base_url = "/proyecto/"; // Ajusta esto si tu proyecto está en una subcarpeta diferente de htdocs
+$base_url = "/plataforma_reservas/"; // Ajusta esto si tu proyecto está en una subcarpeta diferente de htdocs
                          // Si está en la raíz de htdocs, usa "/"
                          // Si usas XAMPP y accedes como localhost/proyecto/, entonces "/proyecto/" es correcto.
 ?>
@@ -28,7 +28,7 @@ $base_url = "/proyecto/"; // Ajusta esto si tu proyecto está en una subcarpeta 
         <header class="site-header">
             <div class="container header-container">
                 <a href="<?php echo $base_url; ?><?php echo isset($_SESSION["usuario_id"]) ? 'index.php' : 'login.php'; ?>" class="logo">
-                    <img src="<?php echo $base_url; ?>images/logo.png" alt="HotelSys Logo" height="40">
+                    <img src="<?php echo $base_url; ?>img/logoHotel.avif" alt="HotelSys Logo" height="40">
                     <span>HotelSys</span>
                 </a>
                 <nav class="main-nav">
