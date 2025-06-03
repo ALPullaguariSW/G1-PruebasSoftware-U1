@@ -1,0 +1,11 @@
+# .htaccess
+
+# Activar el motor de reescritura (puede ser necesario para otras reglas también)
+RewriteEngine On
+
+# Directiva para errores
+ErrorDocument 404 /plataforma_reservas/404.php
+ErrorDocument 403 /plataforma_reservas/403.php 
+
+# Deshabilitar el listado de directorios
+Options -Indexes
